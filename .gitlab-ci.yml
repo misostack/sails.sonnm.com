@@ -1,0 +1,23 @@
+stages:
+  - test
+
+.test_stage: &test_stage
+  stage: test
+  tags:
+    - shared
+  artifacts:
+    when: always
+    paths:
+      - ./coverage/rspec.xml
+    reports:
+      junit: ./coverage/rspec.xml
+  scripts:
+    - yarn install
+    - yarn test
+
+# Run test
+test:
+  <<: *test_stage
+  environment:
+    NODE_ENV: test
+    PORT: 1337

@@ -1,0 +1,45 @@
+{
+  "name": "sonnm-api",
+  "private": true,
+  "version": "0.0.0",
+  "description": "a Sails application",
+  "keywords": [],
+  "dependencies": {
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "dotenv": "^16.0.1",
+    "grunt": "1.0.4",
+    "sails": "^1.5.2",
+    "sails-hook-grunt": "^5.0.0",
+    "sails-hook-orm": "^4.0.0",
+    "sails-hook-sockets": "^2.0.0"
+  },
+  "devDependencies": {
+    "chai": "^4.3.6",
+    "eslint": "5.16.0",
+    "mocha": "^10.0.0",
+    "mocha-junit-reporter": "^2.0.2",
+    "nodemon": "^2.0.16"
+  },
+  "scripts": {
+    "start": "node app.js",
+    "start:window": "set NODE_ENV=production && node app.js --verbose",
+    "dev": "nodemon app.js --verbose",
+    "test": "NODE_ENV=test && mocha",
+    "test:window": "set NODE_ENV=test && mocha",
+    "test:debug": "mocha test/lifecycle.spec.js --timeout 0 --exit",
+    "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
+    "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/anonymous node/sails user/sonnm-api.git"
+  },
+  "author": "anonymous node/sails user",
+  "license": "",
+  "engines": {
+    "node": "^16.14"
+  }
+}
