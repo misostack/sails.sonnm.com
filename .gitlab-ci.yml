@@ -1,3 +1,10 @@
+# Define image
+default:
+  image: node:16.15.0-alpine
+
+  before_script:
+    - yarn install
+
 stages:
   - test
 
@@ -8,16 +15,17 @@ stages:
   artifacts:
     when: always
     paths:
-      - ./coverage/rspec.xml
+      - ./coverage/spec.xml
     reports:
-      junit: ./coverage/rspec.xml
-  scripts:
-    - yarn install
+      junit: ./coverage/spec.xml
+  script:
     - yarn test
 
 # Run test
 test:
   <<: *test_stage
   environment:
+    name: DEV
+  variables:
     NODE_ENV: test
     PORT: 1337
