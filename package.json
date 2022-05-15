@@ -25,10 +25,12 @@
   "scripts": {
     "start": "node app.js",
     "start:window": "set NODE_ENV=production && node app.js --verbose",
-    "dev": "nodemon app.js --verbose",
+    "start:dev": "nodemon app.js --verbose",
+    "start:debug": "nodemon app.js --verbose --inspect",
     "test": "NODE_ENV=test && mocha",
-    "test:window": "set NODE_ENV=test && mocha",
-    "test:debug": "mocha test/lifecycle.spec.js --timeout 0 --exit",
+    "test:local:window": "set NODE_ENV=test && mocha --config ./.mocharc.local.js",
+    "test:local": "NODE_ENV=test && mocha --config ./.mocharc.local.js",
+    "test:debug": "mocha --config ./.mocharc.single.js test/lifecycle.spec.js --timeout 0 --exit --inspect",
     "lint": "./node_modules/eslint/bin/eslint.js . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
   },
