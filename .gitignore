@@ -121,7 +121,6 @@ node_modules
 nbproject
 .idea
 *.iml
-.vscode
 .node_history
 dump.rdb
 
@@ -135,3 +134,5 @@ lib-cov
 .env
 
 coverage
+.vscode/*
+!.vscode/launch.json
